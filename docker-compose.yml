@@ -6,7 +6,7 @@ x-common-django:
   env_file:
     - .env
   volumes:
-    # - './src:/usr/src/project'  # Uncomment for local development
+    - './src:/usr/src/project'  # Uncomment for local development
     - statics:/mnt/volumes/statics
     - geoserver-data-dir:/geoserver_data/data
     - backup-restore:/backup_restore
@@ -143,11 +143,7 @@ services:
       - geoserver-data-dir:/geoserver_data/data
     restart: unless-stopped
     healthcheck:
-      test: ["CMD-SHELL", "ls -A '/geoserver_data/data' | wc -l"]
-      interval: 30s
-      timeout: 10s
-      retries: 3
-      start_period: 10s
+      test: "ls -A '/geoserver_data/data' | wc -l"
 
   # PostGIS database.
   db:

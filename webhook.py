@@ -1,0 +1,11 @@
+from flask import Flask, request
+import subprocess
+
+app = Flask(__name__)
+
+@app.route('/deploy', methods=['POST'])
+def deploy():
+    subprocess.Popen(['/home/jiehoes/geonode-project/deploy.sh'])
+    return 'Deploy triggered'
+
+app.run(host='0.0.0.0', port=9000)
