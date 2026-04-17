@@ -262,3 +262,7 @@ Celery exectutions requires luanching three Debug processes:
  - `Celery Harvesters`: The worker dedicated to the harvesters
 
 You can also remove the `-X harvesting` argument inside the Celery Worker launch configuration to have also the harvesters running in the same worker. this way you don't need to run the Beat and the Celery Harvesters processes.
+
+
+
+TESSSS
