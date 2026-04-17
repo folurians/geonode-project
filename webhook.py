@@ -1,11 +1,14 @@
-from flask import Flask, request
+from flask import Flask, request, abort
 import subprocess
 
 app = Flask(__name__)
 
+SECRET = "mysecret123"
+
 @app.route('/deploy', methods=['POST'])
 def deploy():
-    subprocess.Popen(['/home/jiehoes/geonode-project/deploy.sh'])
-    return 'Deploy triggered'
+    if request.headers.get("X-Secret") != SECRET:
+        abort(403)
 
-app.run(host='0.0.0.0', port=9000)
+    subprocess.Popen(['/home/jiehoes/geonode-project/deploy.sh'])
+    return 'OK'
