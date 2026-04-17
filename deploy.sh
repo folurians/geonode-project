@@ -3,7 +3,7 @@
 echo "=== DEPLOY START ==="
 cd /home/jiehoes/geonode-project || exit
 
-git pull origin main
+git pull origin master
 
 docker compose down
 docker compose up -d 
