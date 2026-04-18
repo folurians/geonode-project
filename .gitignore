@@ -72,3 +72,4 @@ Vagrantfile
 /.env
 file.json
 .webhook-env
+src/celerybeat-schedule
